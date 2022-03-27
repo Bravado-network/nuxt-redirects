@@ -10,7 +10,7 @@
   ],
   "license": "MIT",
   "contributors": [
-    "Alexander Lichter <npm@lichter.io>",
+    "Alexander Lichter <npm@lichter.io>"
   ],
   "main": "lib/module.js",
   "repository": "https://github.com/nuxt-community/redirect-module",
