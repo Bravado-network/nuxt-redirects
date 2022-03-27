@@ -1,3 +1,8 @@
+As original repo (https://github.com/nuxt-community/redirect-module) seems abandoned, i created that repo with support of:
+- client redirects with `vue-router` (thanks @ricardogobbosouza);
+- `permanent: true` instead of 301/302 status code (like in [next.js redirects](https://nextjs.org/docs/api-reference/next.config.js/redirects)) to avoid confusion and mistakes;
+- todo: [path-to-regexp](https://github.com/pillarjs/path-to-regexp) instead of 2 different scheme for client and server;
+
 # Redirect Module 🔀 No more **cumbersome** redirects!
 
 [![npm version][npm-version-src]][npm-version-href]
