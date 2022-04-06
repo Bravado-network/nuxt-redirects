@@ -1,20 +1,23 @@
-As original repo (https://github.com/nuxt-community/redirect-module) seems abandoned, i created that repo with support of:
+As original [`@nuxtjs/redirect-module`](https://github.com/nuxt-community/redirect-module) seems abandoned, i created that repo with support of:
 - client redirects with `vue-router` (thanks @ricardogobbosouza);
 - `permanent: true` instead of 301/302 status code (like in [next.js redirects](https://nextjs.org/docs/api-reference/next.config.js/redirects)) to avoid confusion and mistakes;
 - [path-to-regexp](https://github.com/pillarjs/path-to-regexp) instead of 2 different scheme for client and server;
 
-# Redirect Module 🔀 No more **cumbersome** redirects!
+Todo:
+- [ ] ansync functions as `to` params for `vue-router`
 
-[![npm version][npm-version-src]][npm-version-href]
+# Redirect Module 🔀
+
+<!-- [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![Circle CI][circle-ci-src]][circle-ci-href]
 [![Codecov][codecov-src]][codecov-href]
 [![Dependencies][david-dm-src]][david-dm-href]
-[![Standard JS][standard-js-src]][standard-js-href]
+[![Standard JS][standard-js-src]][standard-js-href] -->
 
 > Nuxt module to dynamically redirect initial requests
 
-[📖 **Release Notes**](./CHANGELOG.md)
+<!-- [📖 **Release Notes**](./CHANGELOG.md) -->
 
 ## Features
 
@@ -103,7 +106,7 @@ redirect: [
 ]
 ```
 
-We use (path-to-regexp)[https://github.com/pillarjs/path-to-regexp] under the hood, so feel free to use `(.*)` and named params.
+We use [path-to-regexp](https://github.com/pillarjs/path-to-regexp) under the hood, so feel free to use `(.*)` and named params.
 
 ```js
 redirect: [
@@ -171,6 +174,7 @@ Redirects are realized through a server middleware, which can only react when th
 [MIT License](./LICENSE)
 
 Copyright (c) Alexander Lichter <npm@lichter.io>
+
 Copyright (c) Artur Kornakov <artur@bravado.co>
 
 <!-- Badges -->
