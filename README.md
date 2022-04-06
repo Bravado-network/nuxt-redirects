@@ -1,7 +1,7 @@
 As original repo (https://github.com/nuxt-community/redirect-module) seems abandoned, i created that repo with support of:
 - client redirects with `vue-router` (thanks @ricardogobbosouza);
 - `permanent: true` instead of 301/302 status code (like in [next.js redirects](https://nextjs.org/docs/api-reference/next.config.js/redirects)) to avoid confusion and mistakes;
-- todo: [path-to-regexp](https://github.com/pillarjs/path-to-regexp) instead of 2 different scheme for client and server;
+- [path-to-regexp](https://github.com/pillarjs/path-to-regexp) instead of 2 different scheme for client and server;
 
 # Redirect Module 🔀 No more **cumbersome** redirects!
 
@@ -83,7 +83,7 @@ Simply add the links you want to redirect as objects to the module option array:
 
 ```js
 redirect: [
-  { from: '^/myoldurl', to: '/mynewurl' }
+  { from: '/myoldurl', to: '/mynewurl' }
 ]
 ```
 
@@ -91,17 +91,25 @@ You can set up a custom status code as well. By default, it's *302*!
 
 ```js
 redirect: [
-  { from: '^/myoldurl', to: '/mynewurl', statusCode: 301 }
+  { from: '/myoldurl', to: '/mynewurl', statusCode: 301 }
 ]
 ```
 
-As you may have already noticed, we are leveraging the benefits of
-*Regular Expressions*. Hence, you can fully customize your redirects.
+You could use `permanent: true` for 301 redirect. Result the same as above.
 
 ```js
 redirect: [
-  { from: '^/myoldurl/(.*)$', to: '/comeallhere' }, // Many urls to one
-  { from: '^/anotherold/(.*)$', to: '/new/$1' } // One to one mapping
+  { from: '/myoldurl', to: '/mynewurl', permanent: true }
+]
+```
+
+We use (path-to-regexp)[https://github.com/pillarjs/path-to-regexp] under the hood, so feel free to use `(.*)` and named params.
+
+```js
+redirect: [
+  { from: '/myoldurl/(.*)', to: '/comeallhere' }, // Many urls to one
+  { from: '/anotherold/:slug', to: '/new/:slug' } // One to one mapping
+  { from: '/onemoreold/:category/:slug', to: '/new/:slug' } // Get rid of param
 ]
 ```
 
@@ -137,7 +145,7 @@ or when there is some error in the decode, you can also:
 ```js
 redirect: {
   rules: [
-    { from: '^/myoldurl', to: '/mynewurl' }
+    { from: '/myoldurl', to: '/mynewurl' }
   ],
   onDecode: (req, res, next) => decodeURI(req.url),
   onDecodeError: (error, req, res, next) => next(error)
@@ -163,6 +171,7 @@ Redirects are realized through a server middleware, which can only react when th
 [MIT License](./LICENSE)
 
 Copyright (c) Alexander Lichter <npm@lichter.io>
+Copyright (c) Artur Kornakov <artur@bravado.co>
 
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/dt/@nuxtjs/redirect-module.svg?style=flat-square

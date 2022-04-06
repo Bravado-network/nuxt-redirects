@@ -4,8 +4,8 @@ const { Nuxt, Builder } = require('nuxt-edge')
 const getPort = require('get-port')
 const consola = require('consola')
 
-const redirects = require('./fixture/spa/redirects')
-const config = require('./fixture/spa/nuxt.config')
+const redirects = require('./fixture/universal/redirects')
+const config = require('./fixture/universal/nuxt.config')
 config.dev = false
 
 let nuxt, port

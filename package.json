@@ -18,29 +18,30 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "nuxt test/fixture/univesal",
+    "dev": "nuxt test/fixture/universal",
     "lint": "eslint lib test",
-    "test": "yarn lint && jest",
+    "test": "jest",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish"
   },
   "files": [
     "lib"
   ],
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/core": "^7.16.11",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "@nuxtjs/eslint-config": "^1.1.2",
     "babel-eslint": "^10.0.3",
-    "babel-jest": "^24.9.0",
+    "babel-jest": "^27.5.1",
     "codecov": "^3.5.0",
     "consola": "^2.10.1",
     "eslint": "^6.2.2",
     "get-port": "^5.0.0",
     "husky": "^3.0.4",
-    "jest": "^24.9.0",
-    "nuxt-edge": "^2.10.0-26112969.c14bb35a",
+    "jest": "^27.5.1",
+    "nuxt-edge": "^2.16.0-27358576.777a4b7f",
     "request": "latest",
     "request-promise-native": "^1.0.7",
     "standard-version": "^7.0.0"
