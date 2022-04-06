@@ -18,7 +18,7 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "nuxt test/fixture/universal",
+    "dev": "nuxt test/fixture",
     "lint": "eslint lib test",
     "test": "jest",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish"

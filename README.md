@@ -160,8 +160,8 @@ objects (as seen above).
 
 ## Gotchas
 
-The redirect module will not work in combination with `nuxt generate`.
-Redirects are realized through a server middleware, which can only react when there is a server running.
+Due to inconsistency of server middleware and vue-router you can't use async functions for `to`.
+If you want to send a PR with that feature - feel free!
 
 ## Development
 
