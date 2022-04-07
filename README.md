@@ -1,4 +1,4 @@
-As original [`@nuxtjs/redirect-module`](https://github.com/nuxt-community/redirect-module) seems abandoned, i created that repo with support of:
+As original [`@nuxtjs/redirect-module`](https://github.com/nuxt-community/redirect-module) seems abandoned, I created that repo with support of:
 - client redirects with `vue-router` (thanks @ricardogobbosouza);
 - `permanent: true` instead of 301/302 status code (like in [next.js redirects](https://nextjs.org/docs/api-reference/next.config.js/redirects)) to avoid confusion and mistakes;
 - [path-to-regexp](https://github.com/pillarjs/path-to-regexp) instead of 2 different scheme for client and server;
@@ -117,22 +117,22 @@ redirect: [
 ```
 
 Furthermore you can use a function to create your `to` url as well :+1:
-The `from` rule and the `req` of the middleware will be provided as arguments.
-The function can also be *async*!
+The requested `url` will be provided as arguments from middleware.
+Function will be executed while navigation in server middleware and in client's `vue-router`.
 
 ```js
 redirect: [
   {
-    from: '^/someUrlHere/(.*)$',
-    to: (from, req) => {
-      const param = req.url.match(/functionAsync\/(.*)$/)[1]
+    from: '/someUrlHere/(.*)',
+    to: (url) => {
+      const param = url.match(/someUrlHere\/(.*)$/)[1]
       return `/posts/${param}`
     }
   }
 ]
 ```
 
-And if you really need more power... okay! You can also use a factory function
+<!-- And if you really need more power... okay! You can also use a factory function
 to generate your redirects:
 
 ```js
@@ -156,7 +156,7 @@ redirect: {
 ```
 
 **ATTENTION**: The factory function **must** return an array with redirect
-objects (as seen above).
+objects (as seen above). -->
 
 ## Gotchas
 

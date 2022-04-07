@@ -54,11 +54,16 @@ const testSuite = () => {
     }
   })
 
-  test('mapped redirect', async () => {
+  test('redirect with param', async () => {
     for (const n of ['abcde', 'abcdeasd', 'raeasdsads']) {
       const { html } = await renderRoute(`/mapped/${n}`)
       expect(html).toContain(n)
     }
+  })
+
+  test('function evaluated to compute redirect rule to', async () => {
+    const { html } = await renderRoute('/function')
+    expect(html).toContain('Works!')
   })
 }
 

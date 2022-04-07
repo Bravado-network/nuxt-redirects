@@ -61,15 +61,6 @@ const testSuite = () => {
     await expect(request(requestOptions)).rejects.toHaveProperty('statusCode', 404)
   })
 
-  test('redirect error with failing "to" function', async () => {
-    const requestOptions = {
-      uri: url('/errorInToFunction'),
-      resolveWithFullResponse: true
-    }
-
-    await expect(request(requestOptions)).rejects.toHaveProperty('statusCode', 500)
-  })
-
   test('many redirect', async () => {
     for (const n of ['abcde', 'abcdeasd', 'raeasdsads']) {
       const html = await get(`/many/${n}`)
@@ -89,15 +80,24 @@ const testSuite = () => {
     expect(html).toContain('Works!')
   })
 
-  test('async function evaluated to compute redirect rule to', async () => {
-    const html = await get('/functionAsync')
-    expect(html).toContain('Works!')
-  })
+  // test('redirect error with failing "to" function', async () => {
+  //   const requestOptions = {
+  //     uri: url('/errorInToFunction'),
+  //     resolveWithFullResponse: true
+  //   }
 
-  test('async function param considered', async () => {
-    const html = await get('/functionAsync/def')
-    expect(html).toContain('def')
-  })
+  //   await expect(request(requestOptions)).rejects.toHaveProperty('statusCode', 500)
+  // })
+
+  // test('async function evaluated to compute redirect rule to', async () => {
+  //   const html = await get('/functionAsync')
+  //   expect(html).toContain('Works!')
+  // })
+
+  // test('async function param considered', async () => {
+  //   const html = await get('/functionAsync/def')
+  //   expect(html).toContain('def')
+  // })
 
   test('permanent redirect', async () => {
     try {
@@ -112,7 +112,7 @@ const testSuite = () => {
   })
 }
 
-describe.only('module', () => {
+describe('module', () => {
   beforeAll(async () => {
     nuxt = await setupNuxt(config)
   })
