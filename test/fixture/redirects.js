@@ -5,6 +5,7 @@ module.exports = [
   { from: '/äöü', to: '/äßU<' },
   { from: '/many/(.*)', to: '/posts/abcde' },
   { from: '/mapped/:slug', to: '/posts/:slug' },
+  { from: '/external', to: 'https://google.com/' },
   { from: '/function', to: () => '/' },
   { from: '/errorInTo', to: '/mapped/\uD800ab\u0001/' }
   // {

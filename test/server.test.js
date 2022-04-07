@@ -28,6 +28,11 @@ const setupNuxt = async (config) => {
 
 const testSuite = () => {
   test('render', async () => {
+    const html = await get('/redirected')
+    expect(html).toContain('Works!')
+  })
+
+  test('render', async () => {
     const html = await get('/')
     expect(html).toContain('Works!')
   })
@@ -73,6 +78,11 @@ const testSuite = () => {
       const html = await get(`/mapped/${n}`)
       expect(html).toContain(n)
     }
+  })
+
+  test('external redirect', async () => {
+    const html = await get('/external')
+    expect(html).toContain('Google')
   })
 
   test('function evaluated to compute redirect rule to', async () => {

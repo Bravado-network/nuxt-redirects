@@ -2,9 +2,11 @@ As original [`@nuxtjs/redirect-module`](https://github.com/nuxt-community/redire
 - client redirects with `vue-router` (thanks @ricardogobbosouza);
 - `permanent: true` instead of 301/302 status code (like in [next.js redirects](https://nextjs.org/docs/api-reference/next.config.js/redirects)) to avoid confusion and mistakes;
 - [path-to-regexp](https://github.com/pillarjs/path-to-regexp) instead of 2 different scheme for client and server;
+- redirect to external urls;
 
 Todo:
-- [ ] ansync functions as `to` params for `vue-router`
+- [ ] `to` as async function for `vue-router`;
+- [ ] fill params for external url;
 
 # Redirect Module 🔀
 
@@ -27,14 +29,14 @@ loss or incorrect handling. But this time is over!
 
 ## Setup
 
-1. Add the `@nuxtjs/redirect-module` dependency with `yarn` or `npm` to your project
-2. Add `@nuxtjs/redirect-module` to the `modules` section of `nuxt.config.js`:
+1. Add the `@bravadoco/nuxt-redirect` dependency with `yarn` or `npm` to your project
+2. Add `@bravadoco/nuxt-redirect` to the `modules` section of `nuxt.config.js`:
 3. Configure it:
 
 ```js
 {
   modules: [
-    ['@nuxtjs/redirect-module', {
+    ['@bravadoco/nuxt-redirect', {
       // Redirect option here
     }]
   ]
@@ -46,7 +48,7 @@ loss or incorrect handling. But this time is over!
 ```js
 {
   modules: [
-    '@nuxtjs/redirect-module'
+    '@bravadoco/nuxt-redirect'
   ],
   redirect: [
     // Redirect options here
@@ -86,7 +88,8 @@ Simply add the links you want to redirect as objects to the module option array:
 
 ```js
 redirect: [
-  { from: '/myoldurl', to: '/mynewurl' }
+  { from: '/myoldurl', to: '/mynewurl' },
+  { from: '/anotherurl', to: 'https://google.com' }
 ]
 ```
 
